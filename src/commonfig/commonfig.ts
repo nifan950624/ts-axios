@@ -11,6 +11,6 @@ export type MixMethods =
 export interface AxiosRequestConfig {
   url: string
   method?: MixMethods
-  parma?: any
+  params?: any
   data?: any
 }
