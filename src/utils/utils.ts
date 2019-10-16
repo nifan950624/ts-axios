@@ -1,5 +1,5 @@
 import { isDate, isObject, enCodeURI } from './handle'
-export default function(url: string, pramas: any): string {
+export function buildURl(url: string, pramas: any): string {
   if (!pramas) {
     return 'url'
   }
