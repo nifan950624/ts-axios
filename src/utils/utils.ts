@@ -1,7 +1,8 @@
-import { isDate, isObject, enCodeURI } from './handle'
+import { isDate, isObject, enCodeURI, isPlaneObject } from './handle'
+
 export function buildURl(url: string, pramas: any): string {
   if (!pramas) {
-    return 'url'
+    return url
   }
 
   let parts: string[] = []
@@ -21,7 +22,7 @@ export function buildURl(url: string, pramas: any): string {
     values.forEach(val => {
       if (isDate(val)) {
         val = val.toISOString()
-      } else if (isObject(val)) {
+      } else if (isPlaneObject(val)) {
         val = JSON.stringify(val)
       }
       parts.push(`${enCodeURI(key)}=${enCodeURI(val)}`)

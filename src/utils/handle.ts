@@ -8,6 +8,10 @@ export function isObject(val: any): val is Object {
   return val !== null && typeof val === 'object'
 }
 
+export function isPlaneObject(val: any): val is Object {
+  return toString.call(val) === '[object Object]'
+}
+
 export function enCodeURI(val: string): string {
   return encodeURIComponent(val)
     .replace(/%40/g, '@')
