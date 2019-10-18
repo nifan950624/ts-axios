@@ -1,12 +1,16 @@
 import { AxiosRequestConfig } from './commonfig/commonfig'
 
 export default function(config: AxiosRequestConfig): void {
-  console.log(config)
-  let { url, method = 'get', data } = config,
+  let { url, method = 'get', data, header } = config,
 
     request = new XMLHttpRequest()
-
   request.open(method.toUpperCase(), url, true)
-  console.log(data)
+
+  Object.keys(header).forEach(name => {
+    if (data === null && name.toLowerCase() === 'content-type') {
+      delete header[name]
+    }
+    request.setRequestHeader(name, header[name])
+  })
   request.send(data)
 }
