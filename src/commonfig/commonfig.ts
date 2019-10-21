@@ -18,6 +18,19 @@ export interface AxiosRequestConfig {
   url: string
   method?: MixMethods
   params?: any
-  data?: any,
+  data?: any
   header?: any
+  responseType?: XMLHttpRequestResponseType
+}
+
+export interface AxiosResponse {
+  data: any
+  status: number
+  statusText: string
+  header: any
+  config: AxiosRequestConfig
+  request: any
+}
+
+export interface AxiosPromise extends Promise <AxiosResponse> {
 }
