@@ -1,4 +1,4 @@
-import { isDate, isObject, enCodeURI, isPlaneObject } from './handle'
+import { enCodeURI, isDate, isPlaneObject } from './handle'
 
 export function buildURl(url: string, pramas: any): string {
   if (!pramas) {
@@ -35,4 +35,12 @@ export function buildURl(url: string, pramas: any): string {
   }
 
   return url + (url.indexOf('?') === -1 ? '?' : '&') + str
+}
+
+
+export function extend<T, U>(to: T, from: U): T & U {
+  for (const key in from) {
+    ;(to as T & U) [key] = from[key] as any
+  }
+  return to as T & U
 }
